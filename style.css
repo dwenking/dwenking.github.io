@@ -57,7 +57,6 @@ body{min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr);place-ite
 .receipt{position:relative;padding-bottom:96px}
 .barcode{position:absolute;left:24px;right:24px;bottom:30px;height:38px;
   background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 8px,var(--ink) 8px 11px,transparent 11px 13px,var(--ink) 13px 14px,transparent 14px 17px)}
-.barcode span{position:absolute;left:0;right:0;top:100%;margin-top:4px;text-align:center;font-size:11px;letter-spacing:.08em;color:var(--mute)}
 
 /* ---------- career card ---------- */
 .career{background:var(--yellow);box-shadow:var(--shadow);display:flex;flex-direction:column;position:relative}
