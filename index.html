@@ -163,9 +163,10 @@
 // Fit the whole board in the viewport on desktop; phones keep the stacked layout.
 const frame=document.querySelector('.frame');
 function fit(){
-  frame.style.zoom=1;
+  frame.style.zoom='';
   if(innerWidth<1000) return;
-  frame.style.zoom=Math.min(1,innerWidth/frame.offsetWidth,innerHeight/frame.offsetHeight);
+  const z=Math.min(innerWidth/frame.offsetWidth,innerHeight/frame.offsetHeight);
+  if(z<1) frame.style.zoom=z;  // leave zoom unset when it fits: an explicit zoom:1 breaks grid centering in some engines
 }
 fit(); addEventListener('resize',fit);
 </script>
