@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" stroke="#2A251F" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+  <!-- needle -->
+  <path d="M16 20v10" stroke-width="2.2"/>
+  <!-- collar -->
+  <path d="M9 20h14l-2.5-4h-9z" fill="#C93B33"/>
+  <!-- head -->
+  <path d="M10.5 16 12 6h8l1.5 10z" fill="#E8483E"/>
+  <!-- highlight -->
+  <path d="M13.5 8.5 14 13" stroke="#fff" stroke-width="1.4" stroke-opacity=".8"/>
+</svg>
