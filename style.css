@@ -81,7 +81,7 @@ body{min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr);grid-temp
 .tape.l{left:20%;margin-left:0;transform:rotate(-6deg)} .tape.r{left:auto;right:10%;margin-left:0;transform:rotate(5deg)}
 .clip{position:absolute;top:-10px;right:58px;width:14px;height:40px;border:2px solid #7A7869;border-radius:8px;transform:rotate(12deg);z-index:2;box-shadow:1px 1px 1px rgba(0,0,0,.15)}
 .clip::after{content:"";position:absolute;width:5px;height:29px;border:1px solid #7A7869;border-bottom:0;border-radius:4px 4px 0 0;top:3px;left:2px}
-.sticky:has(.tape)::before,.sticky:has(.clip)::before{display:none} /* taped or clipped cards lose the pin */
+.sticky:has(.tape)::before,.sticky:has(.clip)::before,.pop:has(.clip)::before{display:none} /* taped or clipped cards lose the pin */
 .tag::after{content:"";position:absolute;right:0;bottom:0;width:28px;height:28px;background:linear-gradient(315deg,var(--cork) 50%,#EDE4CF 50%);box-shadow:-2px -2px 3px rgba(0,0,0,.12)}
 
 /* ---------- tabs: one per group, coloured, hovering lifts that group ---------- */
@@ -104,23 +104,22 @@ body{min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr);grid-temp
 .c-az{--note:rgba(255,255,255,.72)}
 .c-al{--note:var(--paper);background-image:radial-gradient(rgba(60,80,120,.28) 1px,transparent 1.5px);background-size:14px 14px;background-position:7px 7px}
 .c-ms{--note:#FCFCFA;background-image:linear-gradient(rgba(60,110,160,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(60,110,160,.16) 1px,transparent 1px);background-size:16px 16px}
-.pop.pop.c-az{--note:#fff}
+.pop.c-az{--note:#F5EFE3} /* the card is translucent white over cork; this is that blend */
 .tag{background:var(--kraft);padding:22px 22px 20px}
-.paper::before,.sticky::before,.tag::before{ /* push pin in the group colour */
+.paper::before,.sticky::before,.tag::before,.pop::before{ /* push pin in the group colour */
   content:"";position:absolute;top:-9px;left:50%;width:18px;height:18px;margin-left:-9px;border-radius:50%;
   background:radial-gradient(circle at 35% 35%,rgba(255,255,255,.55),var(--pc) 45%,rgba(0,0,0,.45));box-shadow:0 3px 4px rgba(0,0,0,.4)}
 .idx{position:absolute;top:0;left:0;width:34px;height:12px;background:var(--pc)}
 .wide{grid-column:1/-1}
 .more,.close{position:absolute;right:14px;top:14px;width:26px;height:26px;border:1px solid rgba(0,0,0,.45);border-radius:50%;background:rgba(255,255,255,.7);font:18px/24px var(--mono);color:var(--ink);cursor:pointer;padding:0}
 .more:hover,.close:hover{background:#fff}
-.pop{background:var(--note,var(--paper));position:fixed;inset:0;margin:auto;width:min(560px,90vw);border:0;padding:26px 26px 24px;box-shadow:0 30px 60px rgba(40,20,0,.5);
+.pop{background-color:var(--note,var(--paper));overflow:visible;position:fixed;inset:0;margin:auto;width:min(560px,90vw);border:0;padding:26px 26px 24px;box-shadow:0 30px 60px rgba(40,20,0,.5);
   opacity:0;transform:scale(.85) translateY(20px);transition:opacity .25s ease,transform .25s cubic-bezier(.2,.9,.3,1.2),overlay .25s allow-discrete,display .25s allow-discrete}
 .pop:popover-open{opacity:1;transform:none}
 @starting-style{.pop:popover-open{opacity:0;transform:scale(.85) translateY(20px)}}
 .pop::backdrop{background:rgba(40,20,0,0);transition:background .25s ease,overlay .25s allow-discrete,display .25s allow-discrete}
 .pop:popover-open::backdrop{background:rgba(40,20,0,.45)}
 @starting-style{.pop:popover-open::backdrop{background:rgba(40,20,0,0)}}
-.pop::before{display:none}
 .pop .d{font-size:16px}
 .sticky h3,.pop h3{padding-right:36px}
 h3{margin:4px 0 6px;font:13px/1.4 var(--mono);letter-spacing:.08em;color:var(--mute)}
