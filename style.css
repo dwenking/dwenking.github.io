@@ -21,7 +21,7 @@ a:focus-visible{outline:2px solid var(--c1);outline-offset:2px}
 /* ---------- frame: one grid, everything stretches to the same height ---------- */
 .frame{width:1440px;max-width:100%;margin:0 auto;padding:40px 28px 40px}
 html{-webkit-text-size-adjust:100%}
-body{min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr);place-items:center}
+body{min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:1fr;grid-auto-rows:0;place-items:center} /* extra rows stay 0 so extension-injected body children cannot shift the board */
 .board{display:grid;grid-template-columns:300px 290px minmax(0,1fr);gap:28px;align-items:stretch}
 .wall{grid-column:3;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto auto 1fr;gap:28px}
 .foot{display:flex;justify-content:space-between;margin-top:40px;color:rgba(30,20,10,.8);font:12px/1 var(--mono);letter-spacing:.08em}

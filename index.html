@@ -9,7 +9,7 @@
 <meta property="og:description" content="Software developer at NVIDIA. Backend development and AI agents.">
 <meta property="og:url" content="https://dwenking.github.io/">
 <link rel="icon" href="img/favicon.png">
-<link rel="stylesheet" href="style.css?v=31">
+<link rel="stylesheet" href="style.css?v=32">
 </head>
 <body>
 <main class="frame">
@@ -163,10 +163,9 @@
 // Fit the whole board in the viewport on desktop; phones keep the stacked layout.
 const frame=document.querySelector('.frame');
 function fit(){
-  frame.style.zoom='';
+  frame.style.zoom=1;
   if(innerWidth<1000) return;
-  const z=Math.min(innerWidth/frame.offsetWidth,innerHeight/frame.offsetHeight);
-  if(z<1) frame.style.zoom=z;  // leave zoom unset when it fits: an explicit zoom:1 breaks grid centering in some engines
+  frame.style.zoom=Math.min(1,innerWidth/frame.offsetWidth,innerHeight/frame.offsetHeight);
 }
 fit(); addEventListener('resize',fit);
 </script>
